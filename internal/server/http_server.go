@@ -17,6 +17,7 @@ func StartHTTP(hub *websocket.Hub, manager *websocket.ClientManager) {
 		fmt.Fprintf(w, "hello")
 	})
 	http.HandleFunc("/api/copyFileInfoToCloud", api.HandleCopyFileInfoToCloud(hub, manager))
+	http.HandleFunc("/api/pasteFileFromCloud", api.HandlePasteFileFromCloud)
 	http.HandleFunc("/download", api.HandleDownload)
 	http.HandleFunc("/udp/send", api.HandleUDPSend)
 
